@@ -1,5 +1,6 @@
 #include <iostream>
 using namespace std;
+
 int main()
 {
 	cout << "The size of an int is:\t\t" << sizeof(int) << " bytes.\n";
@@ -12,7 +13,7 @@ int main()
 
 	return 0;
 };
-////
+/*
 The size of an int is:		4 bytes.
 The size of a short int is:		2 bytes.
 The size of a long int is:		8 bytes.
@@ -20,7 +21,9 @@ The size of a char is:		1 bytes,
 The size of a float is:		4 bytes.
 The size of a double is:		8 bytes.
 The size of a bool is:		1 bytes.
-////
+*/
+
+/*
 #include <iostream>
 #include <limits>
 
@@ -55,3 +58,4 @@ int main() {
    showMinMax<unsigned long>();
 }
 
+*/
