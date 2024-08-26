@@ -5,11 +5,11 @@ int main()
 
 {
 
-	int a = 1, b = 1, c;
+	int a = 3, b = 1, c;
 
 	if (c = (a - b))
 
-    	cout << "The value of c is: " << c;
+    	cout << "The value of c is: " << c << endl;
 
 	return 0;
 
