@@ -16,7 +16,10 @@ int main()
 
 	result = functionDivision(first, second);
 
-  cout << "\nFunction result = " << result << endl;
+	if (result == -1)
+    cout << "\nThe function returned an error!" << endl;
+  else
+    cout << "\nFunction result = " << result << endl;
 
 	return 0;
 }
