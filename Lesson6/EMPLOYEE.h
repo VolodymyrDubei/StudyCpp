@@ -1,13 +1,13 @@
 class Employee
 {
   public:
-	  unsigned int GetAge();
+	  unsigned int GetAge() const;
 	  void SetAge(unsigned int Age);
 
-	  unsigned int GetYearsOfService();
+	  unsigned int GetYearsOfService() const;
 	  void SetYearsOfService(unsigned int YearsOfService);
 
-    unsigned int GetSalary();
+    unsigned int GetSalary() const;
 	  void SetSalary(unsigned int Salary);
 
   private:
@@ -17,7 +17,7 @@ class Employee
 };
 
 
-unsigned int Employee::GetAge()
+unsigned int Employee::GetAge() const
 {
 	return itsAge;
 }
@@ -28,7 +28,7 @@ void Employee::SetAge(unsigned int Age)
 }
 
 
-unsigned int Employee::GetYearsOfService()
+unsigned int Employee::GetYearsOfService() const
 {
 	return itsYearsOfService;
 }
@@ -39,7 +39,7 @@ void Employee::SetYearsOfService(unsigned int YearsOfService)
 }
 
 
-unsigned int Employee::GetSalary()
+unsigned int Employee::GetSalary() const
 {
 	return itsSalary;
 }
