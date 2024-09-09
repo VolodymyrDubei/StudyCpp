@@ -1,6 +1,10 @@
 class Employee
 {
   public:
+    Employee();
+    Employee(unsigned int initAge, unsigned int initYearsOfService, unsigned int initSalary);
+	  ~Employee();
+
 	  unsigned int GetAge();
 	  void SetAge(unsigned int Age);
 
@@ -18,6 +22,12 @@ class Employee
     unsigned int itsSalary;
 };
 
+Employee::Employee(unsigned int initAge, unsigned int initYearsOfService, unsigned int initSalary)
+{
+	itsAge = initAge;
+  itsYearsOfService = initYearsOfService;
+  itsSalary = initSalary;
+}
 
 unsigned int Employee::GetAge()
 {
