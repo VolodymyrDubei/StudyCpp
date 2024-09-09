@@ -1,5 +1,5 @@
 #include <iostream>
-#include "EMPLOYEE.h"
+#include "Employee.h"
 
 using namespace std;
 

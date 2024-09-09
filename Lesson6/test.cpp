@@ -11,7 +11,7 @@ int main()
 	cin >> number;
 	cout << "\n";
 
-	decision = (float)((number - number%10) + 10)/1000;
+	decision = round((float)number/10)*10/1000;
 
 	cout << "The result = " << decision << endl;
 	

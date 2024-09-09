@@ -10,7 +10,7 @@ class Employee
     unsigned int GetSalary();
 	  void SetSalary(unsigned int Salary);
 
-		float GetEmployeeEarns();
+		void GetEmployeeEarns();
 
   private:
 	  unsigned int itsAge;
@@ -51,7 +51,7 @@ void Employee::SetSalary(unsigned int Salary)
 	itsSalary = Salary;
 }
 
-float Employee::GetEmployeeEarns()
+void Employee::GetEmployeeEarns()
 {
-	return ((float)((itsSalary - itsSalary%10) + 10)/1000);
+  std::cout << "Earns " << (round((float)itsSalary/10)*10/1000) << " thousands of dollars!\n";
 }

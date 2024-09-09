@@ -1,5 +1,5 @@
 #include <iostream>
-#include "EMPLOYEE.h"
+#include "Employee.h"
 
 using namespace std;
 
@@ -10,25 +10,25 @@ int main()
 
   Taras.SetAge(35);
   Taras.SetYearsOfService(4);
-  Taras.SetSalary(3600);
+  Taras.SetSalary(3647);
 
   Stepan.SetAge(29);
   Stepan.SetYearsOfService(2);
-  Stepan.SetSalary(2200);
+  Stepan.SetSalary(2253);
 
 
   cout << "Employee Taras:\n";
-	cout << "Age " << Taras.GetAge() << endl;
-  cout << "Years of service " << Taras.GetYearsOfService() << endl;
-  cout << "Salary " << Taras.GetSalary() << endl;
-  cout << "Earns " << Taras.GetEmployeeEarns() << " thousands of dollars!\n";
+	cout << "Age: " << Taras.GetAge() << endl;
+  cout << "Years of service: " << Taras.GetYearsOfService() << endl;
+  cout << "Salary: " << Taras.GetSalary() << endl;
+  Taras.GetEmployeeEarns();
   cout << "\n";
+
   cout << "Employee Stepan:\n";
-	cout << "Age " << Stepan.GetAge() << endl;
-  cout << "Years of service " << Stepan.GetYearsOfService() << endl;
-  cout << "Salary " << Stepan.GetSalary() << endl;
-  cout << "\n";
-  cout << "Earns " << Stepan.GetEmployeeEarns() << " thousands of dollars!\n";
+	cout << "Age: " << Stepan.GetAge() << endl;
+  cout << "Years of service: " << Stepan.GetYearsOfService() << endl;
+  cout << "Salary: " << Stepan.GetSalary() << endl;
+  Stepan.GetEmployeeEarns();
 	cout << "\n";
 
 	return 0;
