@@ -1,14 +1,16 @@
 class Employee
 {
   public:
-	  unsigned int GetAge() const;
+	  unsigned int GetAge();
 	  void SetAge(unsigned int Age);
 
-	  unsigned int GetYearsOfService() const;
+	  unsigned int GetYearsOfService();
 	  void SetYearsOfService(unsigned int YearsOfService);
 
-    unsigned int GetSalary() const;
+    unsigned int GetSalary();
 	  void SetSalary(unsigned int Salary);
+
+		float GetEmployeeEarns();
 
   private:
 	  unsigned int itsAge;
@@ -17,7 +19,7 @@ class Employee
 };
 
 
-unsigned int Employee::GetAge() const
+unsigned int Employee::GetAge()
 {
 	return itsAge;
 }
@@ -28,7 +30,7 @@ void Employee::SetAge(unsigned int Age)
 }
 
 
-unsigned int Employee::GetYearsOfService() const
+unsigned int Employee::GetYearsOfService()
 {
 	return itsYearsOfService;
 }
@@ -39,7 +41,7 @@ void Employee::SetYearsOfService(unsigned int YearsOfService)
 }
 
 
-unsigned int Employee::GetSalary() const
+unsigned int Employee::GetSalary()
 {
 	return itsSalary;
 }
@@ -47,4 +49,9 @@ unsigned int Employee::GetSalary() const
 void Employee::SetSalary(unsigned int Salary)
 {
 	itsSalary = Salary;
+}
+
+float Employee::GetEmployeeEarns()
+{
+	return ((float)((itsSalary - itsSalary%10) + 10)/1000);
 }
