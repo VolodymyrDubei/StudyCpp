@@ -4,21 +4,21 @@ using namespace std;
 
 int main()
 {
-	Rectangle *pRect = new Rectangle;
-	const Rectangle *pConstRect = new Rectangle;
-	Rectangle *const pConstPtr = new Rectangle;
+	int varOne = 6;
 
-	cout << "pRect width: " << pRect->GetWidth() << " meters wide.\n";
-	cout << "pConstRect width: " << pConstRect->GetWidth() << " meters wide.\n";
-	cout << "pConstPtr width: " << pConstPtr->GetWidth() << " meters wide.\n";
+  const int *const pThree = &varOne;
 
-	pRect->SetWidth(10);
-	// pConstRect->SetWidth(10);
-	pConstPtr->SetWidth(10);
+  *pThree = 7; // константний вказівник на константу типу інт - а ні адресу, а ні значення не можемо змінювати.
 
-	cout << "pRect width: " << pRect->GetWidth() << " meters wide.\n";
-	cout << "pConstRect width: " << pConstRect->GetWidth() << " meters wide.\n";
-	cout << "pConstPtr width: " << pConstPtr->GetWidth() << " meters wide.\n";
+
+  int varTwo = 12;
+
+  pThree = &varTwo; // константний вказівник на константу типу інт - а ні адресу, а ні значення не можемо змінювати.
 
 	return 0;
 }
+
+  // int varOne = 55;
+  // int *const pThre = &varOne; // константний вказівник на тип інт - не можемо змінити адресу, але значення можемо змінити.
+  // const int *pTwo = &varOne; // вказівник на константу типу інт - не можемо змінювати значення.
+  // const int *const pFour; // константний вказівник на константу типу інт - а ні адресу, а ні значення не можемо змінювати.
