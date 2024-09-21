@@ -11,7 +11,6 @@ int main()
 
   *pThree = 7; 
 
-
   int varTwo = 12;
 
   pThree = &varTwo;
