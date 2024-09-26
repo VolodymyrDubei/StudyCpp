@@ -6,7 +6,7 @@ class Cat
 {
 public:
 	Cat();
-	//Cat(const Cat &);
+	Cat(const Cat &);
 	~Cat();
 	int GetAge() const { return *itsAge; }
 	int GetWeight() const { return *itsWeight; }
@@ -25,13 +25,13 @@ Cat::Cat()
 	*itsWeight = 9;
 }
 
-// Cat::Cat(const Cat &rhs)
-// {
-// 	itsAge = new int;
-// 	itsWeight = new int;
-// 	*itsAge = rhs.GetAge();
-// 	*itsWeight = *(rhs.itsWeight);
-// }
+Cat::Cat(const Cat &rhs)
+{
+	itsAge = new int;
+	itsWeight = new int;
+	*itsAge = rhs.GetAge();
+	*itsWeight = *(rhs.itsWeight);
+}
 
 Cat::~Cat()
 {

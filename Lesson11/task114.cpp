@@ -9,31 +9,22 @@ public:
   {
     itsRadius = new int(5);
   }
-  
+
   SimpleCircle(int initRadius)
   {
     itsRadius = new int(initRadius);
   }
-  
+
+  // Копіюючий конструктор
+  SimpleCircle(const SimpleCircle &other)
+  {
+    itsRadius = new int(*other.itsRadius);
+  }
+
   ~SimpleCircle()
   {
     delete itsRadius;
     itsRadius = nullptr;
-  }
-
-  // Копіюючий конструктор
-  SimpleCircle(const SimpleCircle &);
-
-
-  // Оператор присвоєння
-  SimpleCircle &operator=(const SimpleCircle &other)
-  {
-    if (this != &other)
-    {
-      delete itsRadius;
-      itsRadius = new int(*other.itsRadius);
-    }
-    return *this;
   }
 
   void SetRadius(int radius)
@@ -45,62 +36,64 @@ public:
     return *itsRadius;
   }
 
-  // Перевантаження оператора преінкремента (++x)
-  SimpleCircle &operator++()
-  {
-    ++(*itsRadius);
-    return *this;
-  }
-
-  // Перевантаження оператора постінкремента (x++)
-  SimpleCircle operator++(int)
-  {
-    SimpleCircle temp = *this;
-    ++(*itsRadius);
-    return temp;
-  }
+  const SimpleCircle &operator++();
+  const SimpleCircle operator++(int);
+  SimpleCircle &operator=(const SimpleCircle &);
 
 private:
   int *itsRadius;
 };
 
-// Копіюючий конструктор
-SimpleCircle::SimpleCircle(const SimpleCircle &rhs)
-{
-  itsRadius = new int;
-  *itsRadius = *(rhs.itsRadius);
-  //*itsRadius = rhs.GetRadius();
-  //itsRadius = new int(*rhs.itsRadius);
-}
-
-
-
-
-
-
-
-
-SimpleCircle &operator=(const SimpleCircle &other)
-{
-  if (this != &other)
-  {
-    delete itsRadius;
-    itsRadius = new int(*other.itsRadius);
-  }
-  return *this;
-}
-
 // Перевантаження оператора преінкремента (++x)
-SimpleCircle &operator++()
+const SimpleCircle &SimpleCircle::operator++()
 {
   ++(*itsRadius);
   return *this;
 }
 
 // Перевантаження оператора постінкремента (x++)
-SimpleCircle operator++(int)
+const SimpleCircle SimpleCircle::operator++(int)
 {
   SimpleCircle temp = *this;
   ++(*itsRadius);
   return temp;
+}
+
+// Оператор присвоєння
+SimpleCircle &SimpleCircle::operator=(const SimpleCircle &other)
+{
+  if (this != &other) // Перевірка на самоприсвоєння
+  {
+    delete itsRadius; // Звільняємо поточну пам'ять
+
+    itsRadius = new int(*other.itsRadius); // Копіюємо дані з іншого об'єкта
+  }
+  return *this;
+}
+
+int main()
+{
+  SimpleCircle OneCircle;
+  SimpleCircle TwoCircle(16);
+
+	cout << "Radius One Circle: " << OneCircle.GetRadius() << endl;
+  cout << "Radius Two Circle: " << TwoCircle.GetRadius() << endl;
+
+  SimpleCircle ThreeCircle = OneCircle;
+
+  cout << "ThreeCircle = OneCircle: radius Three Circle: " << ThreeCircle.GetRadius() << endl;
+
+  OneCircle.SetRadius(25);
+  TwoCircle.SetRadius(32);
+  ThreeCircle.SetRadius(44);
+  
+  cout << "Radius One Circle: " << OneCircle.GetRadius() << endl;
+  cout << "Radius Two Circle: " << TwoCircle.GetRadius() << endl;
+  cout << "Radius Three Circle: " << ThreeCircle.GetRadius() << endl;
+
+  ThreeCircle = TwoCircle;
+
+  cout << "ThreeCircle = TwoCircle: radius Three Circle: " << ThreeCircle.GetRadius() << endl;
+
+  return 0;
 }
