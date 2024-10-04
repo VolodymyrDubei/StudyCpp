@@ -4,10 +4,13 @@
 
 class Square : public Rectangle {};
 
-    // Віртуальний конструктор-копіювальник
-    virtual Rectangle* Clone() const {
-        return new Square(*this);
-    }
+
+// Віртуальний конструктор-копіювальник
+
+virtual Rectangle* Clone() const
+{
+  return new Square(*this);
+}
 
 
 
