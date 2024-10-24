@@ -10,7 +10,7 @@ public:
   ~MyClass() { staticMember--; }
 
   static int GetStatMember() { return staticMember; }
-  int GetRegMember() { return regularMember; }
+  int GetRegMember() const { return regularMember; }
 
 private:
   static int staticMember;
@@ -28,9 +28,12 @@ int main()
   MyClass *Obj2 = new MyClass(22);
   MyClass *Obj3 = new MyClass(33);
 
-  cout << "Data object 1: " << Obj1->GetRegMember() << endl;
-  cout << "Data object 2: " << Obj2->GetRegMember() << endl;
-  cout << "Data object 3: " << Obj3->GetRegMember() << endl;
+  int (MyClass::*pFunc)() const = nullptr;
+  pFunc = &MyClass::GetRegMember;
+
+  cout << "Data object 1: " << (Obj1->*pFunc)() << endl;
+  cout << "Data object 2: " << (Obj2->*pFunc)() << endl;
+  cout << "Data object 3: " << (Obj3->*pFunc)() << endl;
 
   cout << "Static count: " << MyClass::GetStatMember() << endl;
 

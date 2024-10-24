@@ -27,7 +27,7 @@ int main()
 
   cout << "Data object 1: " << Obj1->regularMember << endl;
   cout << "Data object 2: " << Obj2->regularMember << endl;
-  cout << "Data object 2: " << Obj3->regularMember << endl;
+  cout << "Data object 3: " << Obj3->regularMember << endl;
 
   cout << "Static count: " << MyClass::staticMember << endl;
 
