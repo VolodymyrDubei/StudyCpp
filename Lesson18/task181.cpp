@@ -23,10 +23,10 @@ class Animal
 {
 public:
   Animal() {};
-  Animal(String initName) : Name(initName) {};
+  Animal(String &initName) : Name(initName) {};
   ~Animal() {};
 
-  void SetName(String initName) { Name = initName; }
+  void SetName(String &initName) { Name = initName; }
   String GetName() const { return Name; }
 
   void SetAge(int initAge) { Age = initAge; }
