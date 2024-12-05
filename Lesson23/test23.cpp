@@ -1,54 +1,41 @@
 #include <iostream>
-// #include <stdexcept>
-
+#include <string>
 using namespace std;
 
-class BaseException : public runtime_error
-{
-protected:
-  int errorCode;
-
-public:
-  BaseException(const char *message, int code) : runtime_error(message), errorCode(code) {}
-  int getErrorCode() const { return errorCode; }
-};
-
-class DerivedException : public BaseException
+class xOutOfMemory
 {
 public:
-  DerivedException(const char *message, int code) : BaseException(message, code) {}
+    xOutOfMemory()
+    {
+        theMsg = new char[20];
+        strcpy(theMsg, "error in memory");
+    }
+    ~xOutOfMemory()
+    {
+        delete[] theMsg;
+        cout << "Memory restored. " << endl;
+    }
+    char *Message() { return theMsg; }
+
+private:
+    char *theMsg;
 };
-
-void level_3()
-{
-  throw DerivedException("Level 3 exception.", 300);
-}
-
-void level_2()
-{
-  level_3();
-}
-
-void level_1()
-{
-  level_2();
-}
 
 int main()
 {
-  try
-  {
-    level_1();
-  }
-  catch (const DerivedException &e)
-  {
-    cout << "Derived exception caught: " << e.what() << endl;
-    cout << "Error code: " << e.getErrorCode() << endl;
-  }
-  catch (const BaseException &e)
-  {
-    cout << "Base exception caught: " << e.what() << endl;
-    cout << "Error code: " << e.getErrorCode() << endl;
-  }
-  return 0;
+    try
+    {
+        char *var = new char;
+        if (var == nullptr)
+        {
+            xOutOfMemory *px = new xOutOfMemory;
+            throw px;
+        }
+    }
+    catch (xOutOfMemory *theException)
+    {
+        cout << theException->Message() << endl;
+        delete theException;
+    }
+    return 0;
 }
